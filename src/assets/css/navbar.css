@@ -1,0 +1,39 @@
+.navbar {
+  padding: 40px 0px;
+}
+.navbar .blocks {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .block {
+  display: flex;
+  width: 300px;
+}
+.navbar .block:nth-child(2) {
+  margin: 0 40px;
+}
+.navbar .block .about{
+  margin-left: 20px;
+}
+.navbar .block .title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.navbar .block .desc {
+  font-size: 14px;
+}
+.img.deliver {
+  width: 77px;
+  height: 50px;
+  background-image: url("../../../images/Navbar/deliver.svg");
+}
+.img.payment {
+  width: 61px;
+  height: 50px;
+  background-image: url("../../../images/Navbar/pay.svg");
+}
+.img.sales {
+  width: 77px;
+  height: 50px;
+  background-image: url("../../../images/Navbar/Union.svg");
+}

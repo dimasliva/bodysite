@@ -1,0 +1,85 @@
+
+.catalog_block {
+  display: flex;
+  flex-direction: column;
+
+}
+.catalog_block .title {
+  font-size: 36px;
+  color: #333333;
+
+  margin-bottom: 30px;
+}
+.catalog_block .catalogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.catalog_block .catalogs .catalog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin: 10px auto;
+  padding: 20px;
+  min-width: 255px;
+  min-height: 299px;
+  position: relative;
+  cursor: pointer;
+}
+.catalog_block .catalogs .catalog .img {
+  height: 155px;
+  width: 155px;
+  margin: 0 auto;
+}
+
+.catalog_block .catalogs .catalog:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #F4F4F4;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+.catalog_block .catalogs .catalog:hover .title {
+  color: #2D9CDB;
+}
+.catalog_block .catalogs .catalog .title {
+  font-size: 18px;
+  text-align: center;
+
+  color: #333333;
+}
+.catalog_block .catalogs .catalog .num {
+  font-size: 18px;
+  text-align: center;
+  
+  color: #828282;
+}
+
+.catalog_block .catalogs .catalog .desctop {
+  background-image: url("../../../images/Catalogs/pc.png");
+}
+.catalog_block .catalogs .catalog .cloth {
+  background-image: url("../../../images/Catalogs/cloth.png");
+}
+.catalog_block .catalogs .catalog .electronics {
+  background-image: url("../../../images/Catalogs/camera.png");
+}
+.catalog_block .catalogs .catalog .products {
+  background-image: url("../../../images/Catalogs/auto.png");
+}
+.catalog_block .catalogs .catalog .sport {
+  background-image: url("../../../images/Catalogs/sport.png");
+}
+.catalog_block .catalogs .catalog .child {
+  background-image: url("../../../images/Catalogs/children.png");
+}
+.catalog_block .catalogs .catalog .tourism {
+  background-image: url("../../../images/Catalogs/toarism.png");
+}
+.catalog_block .catalogs .catalog .tools {
+  background-image: url("../../../images/Catalogs/tools.png");
+}

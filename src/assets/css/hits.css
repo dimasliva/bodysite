@@ -1,0 +1,55 @@
+.hits_block .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hits_block .header .bts {
+  display: flex;
+  align-items: center;
+}
+.hits_block .header .bts .btn {
+  background: #EEEEEE;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  cursor: pointer;
+} 
+.hits_block .header .title {
+  margin-bottom: 25px;
+  font-size: 36px;
+  color: #333333;
+} 
+.hits_block .header .bts .btn .arrow {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../images/hits/arrow.svg");
+}
+.hits_block .header .bts .btn.right .arrow {
+  transform: rotate(180deg);
+}
+.hits_block .catalogs .catalog .header {
+  display: flex;
+  padding: 14px;
+  justify-content: space-between;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.hits_block .catalogs .catalog .header .loop {
+  width: 18px;
+  height: 18px;
+  background-image: url("../../../images/hits/loop.svg");
+}
+.hits_block .catalogs .catalog .header .hit {
+  background: #9B51E0;
+  border-radius: 3px;
+  padding: 5px 16px;
+  color: white;
+}
