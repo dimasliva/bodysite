@@ -11,14 +11,21 @@ export function createHits() {
   const arrowRight = document.createElement("div")
 
   const blocks = document.createElement("div")
-
+  
   const hitsArr = [
     {title: "Смартфон Apple Iphone 8 64GB Gold", price: "56 890", lastPrice: "56 990", reviews: 10, stars: 5, icon: "iphone"},
     {title: "Смартфон Samsung Galaxy S8 64GB Black", price: "49 990", lastPrice: "54 990", reviews: 12, stars: 45, icon: "samsung"},
     {title: "Смартфон Huawei Honor 9 64GB Blue", price: "26 990", lastPrice: null, reviews: 8, stars: 4, icon: "huawei"},
     {title: "Смартфон ASUS ZenFone 4 Max ZC554KL 16GB Black", price: "13 990", lastPrice: null, reviews: 5, stars: 3, icon: "asus"},
   ] 
-  createBlock(hitsArr, blocks)
+  let isMobile = window.innerWidth <= 414
+  let textHit = ""
+  if(!isMobile) {
+      textHit = "hit"
+  } else {
+      textHit = "ХИТ"
+  }
+  createBlock(hitsArr, blocks, textHit)
 
   container.classList.add("hits_block")
 
@@ -32,8 +39,23 @@ export function createHits() {
   btnRight.classList.add(...["btn", "right"])
 
   blocks.classList.add("catalogs")
+  blocks.classList.add("catalogs")
   
   title.innerHTML = "Хиты продаж"
+
+  addEventListener("resize", (event) => {
+    isMobile = window.innerWidth <= 414
+    let elements = container.getElementsByClassName("hit")
+    if(!isMobile) {
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].innerHTML = "hit"
+      }
+    } else {
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].innerHTML = "ХИТ"
+      }
+    }
+  });
 
   btnLeft.appendChild(arrowLeft)
   btnRight.appendChild(arrowRight)
@@ -48,7 +70,7 @@ export function createHits() {
   container.appendChild(blocks)
   return container
 }
-function createBlock(catalogs, container) {
+function createBlock(catalogs, container, textHit) {
   let catalog = []
   let catalogHeader = []
   let catalogLoop = []
@@ -56,6 +78,7 @@ function createBlock(catalogs, container) {
 
   let catalogHoverContainer = []
   let catalogHover = []
+  let btnBuyOneClick = []
 
   let catalogIcon = []
   let catalogTitle = []
@@ -71,8 +94,10 @@ function createBlock(catalogs, container) {
   let catalogFooter = []
   let catalogFooterIcons = []
   let catalogRatingBlock = []
-
+  let succesIcon = []
+  let stockText = []
   for (let i = 0; i < catalogs.length; i++) {
+    
     catalog[i] = catalogs[i];
     catalogTitle[i] = catalogs[i];
     catalogHeader[i] = catalogs[i];
@@ -93,6 +118,9 @@ function createBlock(catalogs, container) {
     catalogFooter[i] = catalogs[i];
     catalogFooterIcons[i] = catalogs[i];
     catalogRatingBlock[i] = catalogs[i];
+    btnBuyOneClick[i] = catalogs[i];
+    succesIcon[i] = catalogs[i];
+    stockText[i] = catalogs[i];
     
     catalog[i] = createDiv( ["catalog",])
     catalogHeader[i] = createDiv( ["header",])
@@ -107,53 +135,51 @@ function createBlock(catalogs, container) {
     catalogPrice[i] = createDiv( ["price",])
     catalogPrices[i] = createDiv( ["price_block",])
     catalogLastPrice[i] = createDiv( ["last_price", catalogs[i].lastPrice !== null ? "show" : null])
-    catalogInStock[i] = createDiv( ["stock",])
     catalogCart[i] = createDiv( ["btn", "cart"])
     catalogRating[i] = createDiv( ["rating", "img"])
     catalogHeart[i] = createDiv( ["heart", "img"])
     catalogFooter[i] = createDiv( ["footer",])
     catalogRatingBlock[i] = createDiv( ["rating_block",])
     catalogFooterIcons[i] = createDiv( ["icons",])
+    btnBuyOneClick[i] = createDiv( ["buy",])
+    catalogInStock[i] = createDiv( ["stock",])
+    succesIcon[i] = createSpan( ["img", "buy"])
+    stockText[i] = createSpan( ["text",])
 
     catalogTitle[i].innerHTML = catalogs[i].title
     catalogPrice[i].innerHTML = catalogs[i].price + ' ₽'
-    catalogInStock[i].innerHTML = "В наличии"
+    stockText[i].innerHTML = "В наличии"
     catalogCart[i].innerHTML = "В корзину"
-    catalogHit[i].innerHTML = "hit"
+    catalogHit[i].innerHTML = textHit
     catalogReviews[i].innerHTML = catalogs[i].reviews + " отзывов"
     catalogLastPrice[i].innerHTML = catalogs[i].lastPrice ? catalogs[i].lastPrice + ' ₽' : null
+    btnBuyOneClick[i].innerHTML = "Купить в 1 клик"
 
-    catalogHoverContainer[i].appendChild(catalogHover[i]);
-    catalogIcon[i].appendChild(catalogHoverContainer[i]);
-    catalogHeader[i].appendChild(catalogLoop[i]);
-    catalogHeader[i].appendChild(catalogHit[i]);
+    appendContainer(catalogHoverContainer[i], [ catalogHover[i],] )
+    appendContainer(catalogIcon[i], [ catalogHoverContainer[i],] )
+    appendContainer(catalogInStock[i], [ succesIcon[i], stockText[i] ] )
+    appendContainer(catalogHeader[i], [ catalogLoop[i], catalogHit[i] ] )
+    appendContainer(catalogPrices[i], [ catalogPrice[i], catalogLastPrice[i] ] )
+    appendContainer(catalogFooterIcons[i], [ catalogRating[i], catalogHeart[i] ] )
+    appendContainer(catalogFooter[i], [ catalogCart[i], catalogFooterIcons[i] ] )
+    appendContainer(catalogRatingBlock[i], [ catalogStars[i], catalogReviews[i] ] )
 
-    catalogPrices[i].appendChild(catalogPrice[i]);
-    catalogPrices[i].appendChild(catalogLastPrice[i]);
-
-    catalogFooterIcons[i].appendChild(catalogRating[i]);
-    catalogFooterIcons[i].appendChild(catalogHeart[i]);
-
-    catalogFooter[i].appendChild(catalogCart[i]);
-    catalogFooter[i].appendChild(catalogFooterIcons[i]);
-
-    catalogRatingBlock[i].appendChild(catalogStars[i]);
-    catalogRatingBlock[i].appendChild(catalogReviews[i]);
-
-    catalog[i].appendChild(catalogHeader[i]);
-    catalog[i].appendChild(catalogIcon[i]);
-    catalog[i].appendChild(catalogTitle[i]);
-    catalog[i].appendChild(catalogRatingBlock[i]);
-    catalog[i].appendChild(catalogPrices[i]);
-    catalog[i].appendChild(catalogInStock[i]);
-    catalog[i].appendChild(catalogFooter[i]);
-
+    appendContainer(catalog[i], [ catalogHeader[i], catalogIcon[i], catalogTitle[i], catalogRatingBlock[i], catalogPrices[i], catalogInStock[i], catalogFooter[i], btnBuyOneClick[i], ] )
     container.appendChild(catalog[i]);
   }
 }
-
+function appendContainer(container, elements) {
+  for (let i = 0; i < elements.length; i++) {
+    container.appendChild(elements[i]);
+  }
+}
 function createDiv(nameClass) {
   let element = document.createElement("div")
+  element.classList.add(...nameClass)
+  return element
+}
+function createSpan(nameClass) {
+  let element = document.createElement("span")
   element.classList.add(...nameClass)
   return element
 }

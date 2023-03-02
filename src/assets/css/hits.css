@@ -3,6 +3,21 @@
   align-items: center;
   justify-content: space-between;
 }
+.hits_block .catalogs {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 255px);
+  justify-content: center;
+}
+.hits_block .catalogs .catalog {
+  width: 100%;
+  margin: 0 20px;
+  position: relative;
+  padding: 20px;
+  max-width: 255px;
+  cursor: pointer;
+  padding-bottom: 0;
+}
 .hits_block .header .bts {
   display: flex;
   align-items: center;
@@ -59,23 +74,11 @@
 .hits_block {
   margin-bottom: 25px;
 }
-.hits_block .catalogs {
-  display: flex;
-}
 .hits_block .catalogs .catalog:first-child {
   margin-left: 0;
 }
 .hits_block .catalogs .catalog:last-child {
   margin-right: 0;
-}
-.hits_block .catalogs .catalog {
-  width: 24%;
-  margin: 0 20px;
-  position: relative;
-  padding: 20px;
-  max-height: 486px;
-  max-width: 255px;
-  cursor: pointer;
 }
 .hits_block .catalogs .catalog:hover::before {
   content: "";
@@ -203,3 +206,103 @@
 .hits_block .catalogs .catalog .asus {
   background-image: url("../../../images/hits/asus.png");
 }
+
+.hits_block .catalogs .catalog .stock {
+  display: flex;
+}
+.hits_block .catalogs .catalog .stock .buy,  .hits_block .catalogs .catalog .buy{
+  display: none;
+}
+@media (max-width: 414px) {
+  .hits_block {
+    margin-top: 30px;
+  }
+  .hits_block .catalogs .catalog .stock .buy {
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    margin-right: 6px;
+    padding: 0;
+    background-image: url("../../../images/hits/mobile/success.svg");
+  }
+  .hits_block .catalogs .catalog .header {
+    flex-direction: row-reverse;
+    padding: 20px;
+  }
+  .hits_block .catalogs .catalog .header .img {
+    margin: 0;
+    width: 22px;
+    height: 21px;
+    background-image: url("../../../images/hits/mobile/youtube.svg");
+  }
+  .hits_block .header .title {
+    font-size: 22px;
+    color: #333333;
+  }
+  .hits_block .catalogs {
+    display: flex;
+    justify-content: center;
+  }
+  .hits_block .catalogs .catalog {
+    display: none;
+  }  
+  .hits_block .catalogs .catalog:first-child {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  .hits_block .catalogs .catalog .img {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .hits_block .catalogs .catalog .rating_block .img {
+    margin: 0;
+  }
+  .hits_block .catalogs .catalog:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: 1px solid #F4F4F4;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+  }
+  .hits_block .catalogs .catalog .footer {
+    display: flex;
+    align-items: center;
+  }
+  .hits_block .catalogs .catalog .footer .icons .img {
+    margin: 0
+  }
+  .hits_block .catalogs .catalog .footer .icons .rating {
+    margin-right: 20px;
+  }
+  .hits_block .catalogs .catalog .price_block .price{
+    font-size: 22px;
+  }
+  .hits_block .catalogs .catalog .price_block .last_price {
+    color: #828282;
+  }
+  .hits_block .catalogs .catalog .footer .btn {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 20px;
+  }
+  .hits_block .catalogs .catalog .buy {
+    margin-top: 25px;
+    border-top: 1px solid #F2F2F2;
+    font-size: 14px;
+    text-align: center;
+    
+    color: #2D9CDB;
+    padding: 20px;
+  }
+} 

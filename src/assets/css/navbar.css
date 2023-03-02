@@ -3,16 +3,16 @@
   cursor: default;
 }
 .navbar .blocks {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 350px);
+  justify-content: center;
 }
-.navbar .block {
+.navbar .blocks .block {
   display: flex;
   align-items: center;
-  width: 340px;
-}
-.navbar .block:nth-child(2) {
-  margin: 0 40px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 .navbar .block .about{
   margin-left: 20px;

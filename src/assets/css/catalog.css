@@ -12,7 +12,9 @@
 }
 .catalog_block .catalogs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 255px);
+  justify-content: center;
 }
 .catalog_block .catalogs .catalog {
   display: flex;
@@ -43,13 +45,13 @@
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
-.catalog_block .catalogs .catalog:hover .title {
+.catalog_block .catalogs .catalog:hover .left .title {
   color: #2D9CDB;
 }
-.catalog_block .catalogs .catalog .title {
+.catalog_block .catalogs .catalog .left .title {
   font-size: 18px;
   text-align: center;
-
+  margin-top: 10px;
   color: #333333;
 }
 .catalog_block .catalogs .catalog .num {
@@ -58,7 +60,9 @@
   
   color: #828282;
 }
-
+.catalog_block .catalogs .catalog .right .arrow {
+  display: none;
+}
 .catalog_block .catalogs .catalog .desctop {
   background-image: url("../../../images/Catalogs/pc.png");
 }
@@ -117,6 +121,10 @@
     flex-direction: column;
     align-items: center;
   }
+  .catalog_block .catalogs .catalog:hover::before {
+    top: 100%;
+    border: 0px;
+  }
   .catalog_block .catalogs .catalog {
     display: flex;
     flex-direction: row;
@@ -157,6 +165,7 @@
     margin-right: 10px;
   }
   .catalog_block .catalogs .catalog .right .arrow {
+    display: block;
     width: 10px;
     height: 10px;
     background-image: url("../../../images/hits/arrow.svg");

@@ -7,7 +7,20 @@ export function createCatalogs() {
   const btnText = document.createElement("span")
   const btnArrow = document.createElement("span")
 
-  const isMobile = window.innerWidth <= 414
+  let isMobile = window.innerWidth <= 414
+  addEventListener("resize", (event) => {
+    isMobile = window.innerWidth <= 414
+    let elements = document.getElementsByClassName("num")
+    if(!isMobile) {
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].innerHTML = catalogsArr[i].product + " товара"
+      }
+    } else {
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].innerHTML = catalogsArr[i].product
+      }
+    }
+  });
   const catalogsArr = [
     {title: "Компьютеры", product: 393, icon: "desctop"},
     {title: "Одежда", product: 245, icon: "cloth"},
@@ -77,22 +90,14 @@ function createBlock(catalogs, container, isMobile) {
     catalogIcon[i].classList.add(catalogs[i].icon)
 
     catalogTitle[i].innerHTML = catalogs[i].title
-    catalogToolsNum[i].innerHTML = isMobile ? catalogs[i].product : catalogs[i].product + ' товара'
+    catalogToolsNum[i].innerHTML = isMobile ? catalogs[i].product : catalogs[i].product + " товара"
 
-    if(isMobile) {
-      catalogLeft[i].appendChild(catalogIcon[i]);
-      catalogLeft[i].appendChild(catalogTitle[i]);
-
-      catalogRight[i].appendChild(catalogToolsNum[i]);
-      catalogRight[i].appendChild(catalogArrow[i]);
-
-      catalog[i].appendChild(catalogLeft[i]);
-      catalog[i].appendChild(catalogRight[i]);
-    } else {
-      catalog[i].appendChild(catalogIcon[i]);
-      catalog[i].appendChild(catalogTitle[i]);
-      catalog[i].appendChild(catalogToolsNum[i]);
-    }
+    catalogLeft[i].appendChild(catalogIcon[i]);
+    catalogLeft[i].appendChild(catalogTitle[i]);
+    catalogRight[i].appendChild(catalogToolsNum[i]);
+    catalogRight[i].appendChild(catalogArrow[i]);
+    catalog[i].appendChild(catalogLeft[i]);
+    catalog[i].appendChild(catalogRight[i]);
 
     container.appendChild(catalog[i]);
   }
