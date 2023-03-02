@@ -87,7 +87,7 @@
 .catalog_block .catalogs .catalog .tools {
   background-image: url("../../../images/Catalogs/tools.png");
 }
-@media (max-width: 414px) {
+@media (max-width: 528px) {
   .container {
     width: 92%;
   }

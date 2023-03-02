@@ -40,7 +40,7 @@
   min-height: 50px;
   background-image: url("../../../images/Navbar/Union.svg");
 }
-@media (max-width: 414px) {
+@media (max-width: 528px) {
   .navbar .blocks .block {
     display: none;
   }

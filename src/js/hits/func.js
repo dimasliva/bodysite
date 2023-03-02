@@ -1,3 +1,5 @@
+import { mobileSize } from "../variables/vars.js"
+
 export function createHits() {
   const container = document.createElement("div")
 
@@ -18,7 +20,7 @@ export function createHits() {
     {title: "Смартфон Huawei Honor 9 64GB Blue", price: "26 990", lastPrice: null, reviews: 8, stars: 4, icon: "huawei"},
     {title: "Смартфон ASUS ZenFone 4 Max ZC554KL 16GB Black", price: "13 990", lastPrice: null, reviews: 5, stars: 3, icon: "asus"},
   ] 
-  let isMobile = window.innerWidth <= 414
+  let isMobile = window.innerWidth <= mobileSize
   let textHit = ""
   if(!isMobile) {
       textHit = "hit"
@@ -44,7 +46,7 @@ export function createHits() {
   title.innerHTML = "Хиты продаж"
 
   addEventListener("resize", (event) => {
-    isMobile = window.innerWidth <= 414
+    isMobile = window.innerWidth <= mobileSize
     let elements = container.getElementsByClassName("hit")
     if(!isMobile) {
       for (let i = 0; i < elements.length; i++) {

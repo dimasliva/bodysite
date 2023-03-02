@@ -1,3 +1,5 @@
+import { mobileSize } from "../variables/vars.js"
+
 export function createCatalogs() {
   const container = document.createElement("div")
   const title = document.createElement("div")
@@ -7,9 +9,9 @@ export function createCatalogs() {
   const btnText = document.createElement("span")
   const btnArrow = document.createElement("span")
 
-  let isMobile = window.innerWidth <= 414
+  let isMobile = window.innerWidth <= mobileSize
   addEventListener("resize", (event) => {
-    isMobile = window.innerWidth <= 414
+    isMobile = window.innerWidth <= mobileSize
     let elements = document.getElementsByClassName("num")
     if(!isMobile) {
       for (let i = 0; i < elements.length; i++) {
