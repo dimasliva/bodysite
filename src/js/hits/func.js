@@ -155,6 +155,5 @@ function createBlock(catalogs, container) {
 function createDiv(nameClass) {
   let element = document.createElement("div")
   element.classList.add(...nameClass)
-  console.log(element)
   return element
 }

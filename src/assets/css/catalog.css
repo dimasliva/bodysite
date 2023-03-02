@@ -83,3 +83,94 @@
 .catalog_block .catalogs .catalog .tools {
   background-image: url("../../../images/Catalogs/tools.png");
 }
+@media (max-width: 414px) {
+  .container {
+    width: 92%;
+  }
+  .catalog_block .title {
+    font-size: 22px;
+    color: #333333;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .catalog_block .more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9.5px 14px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #2D9CDB;
+    color: #2D9CDB;
+    border-radius: 5px;
+  }
+  .catalog_block .more .arrow {
+    width: 10px;
+    height: 10px;
+    background-image: url("../../../images/Catalogs/arrow_down.svg");
+    margin-left: 10px;
+    filter: invert(49%) sepia(84%) saturate(1112%) hue-rotate(173deg) brightness(94%) contrast(82%);
+  }
+  .catalog_block .catalogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .catalog_block .catalogs .catalog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 60px;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+  }
+  .catalog_block .catalogs .catalog::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0 auto;
+    width: 100%;
+    height: 1px;
+    background: #EBF8FF;
+  }
+  .catalog_block .catalogs .catalog:last-child:before {
+    background: transparent;
+  }
+  .catalog_block .catalogs .catalog .left {
+    display: flex;
+    align-items: center;
+  }
+  .catalog_block .catalogs .catalog .right {
+    display: flex;
+    align-items: center;
+  }
+  .catalog_block .catalogs .catalog .right .num {
+    font-size: 14px;
+    color: #A0A0A0;
+    margin-right: 10px;
+  }
+  .catalog_block .catalogs .catalog .right .arrow {
+    width: 10px;
+    height: 10px;
+    background-image: url("../../../images/hits/arrow.svg");
+    transform: rotate(180deg);
+    filter: invert(49%) sepia(84%) saturate(1112%) hue-rotate(173deg) brightness(94%) contrast(82%);
+  }
+  .catalog_block .catalogs .catalog .left .title {
+    margin: 0px;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #2D9CDB;
+  }
+  .catalog_block .catalogs .catalog .left .img {
+    width: 34px;
+    height: 34px;
+  }
+}

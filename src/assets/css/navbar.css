@@ -1,5 +1,6 @@
 .navbar {
   padding: 40px 0px;
+  cursor: default;
 }
 .navbar .blocks {
   display: flex;
@@ -7,7 +8,8 @@
 }
 .navbar .block {
   display: flex;
-  width: 300px;
+  align-items: center;
+  width: 340px;
 }
 .navbar .block:nth-child(2) {
   margin: 0 40px;
@@ -15,25 +17,37 @@
 .navbar .block .about{
   margin-left: 20px;
 }
-.navbar .block .title {
+.navbar .block .about .title {
   font-size: 16px;
   margin-bottom: 4px;
 }
-.navbar .block .desc {
+.navbar .block .about .desc {
   font-size: 14px;
+  color: #333333;
 }
 .img.deliver {
-  width: 77px;
-  height: 50px;
+  min-width: 77px;
+  min-height: 50px;
   background-image: url("../../../images/Navbar/deliver.svg");
 }
 .img.payment {
-  width: 61px;
-  height: 50px;
+  min-width: 61px;
+  min-height: 50px;
   background-image: url("../../../images/Navbar/pay.svg");
 }
 .img.sales {
-  width: 77px;
-  height: 50px;
+  min-width: 77px;
+  min-height: 50px;
   background-image: url("../../../images/Navbar/Union.svg");
+}
+@media (max-width: 414px) {
+  .navbar .blocks .block {
+    display: none;
+  }
+  .navbar .blocks .block:first-child {
+    display: flex;
+  }
+  .navbar .blocks {
+    justify-content: center;
+  }
 }

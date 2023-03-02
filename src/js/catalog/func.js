@@ -3,6 +3,11 @@ export function createCatalogs() {
   const title = document.createElement("div")
   const blocks = document.createElement("div")
 
+  const btn = document.createElement("div")
+  const btnText = document.createElement("span")
+  const btnArrow = document.createElement("span")
+
+  const isMobile = window.innerWidth <= 414
   const catalogsArr = [
     {title: "Компьютеры", product: 393, icon: "desctop"},
     {title: "Одежда", product: 245, icon: "cloth"},
@@ -13,21 +18,35 @@ export function createCatalogs() {
     {title: "Туризм и рыбалка", product: 92, icon: "tourism"},
     {title: "Инструмент", product: 104, icon: "tools"},
   ] 
-  createBlock(catalogsArr, blocks)
 
+  createBlock(catalogsArr, blocks, isMobile)
   container.classList.add("catalog_block")
 
   title.classList.add("title")
   blocks.classList.add("catalogs")
+  btn.classList.add(...["btn", "more"])
+  btnText.classList.add("text")
+  btnArrow.classList.add(...["img", "arrow"])
   
-  title.innerHTML = "Каталог товаров"
+  title.innerHTML = isMobile ? "Популярные категории" : "Каталог товаров"
+  btnText.innerHTML = "Показать ещё"
 
 
   container.appendChild(title)
   container.appendChild(blocks)
+
+  if(isMobile) {
+    btn.appendChild(btnText)
+    btn.appendChild(btnArrow)
+    container.appendChild(btn)
+  }
   return container
 }
-function createBlock(catalogs, container) {
+function createBlock(catalogs, container, isMobile) {
+  let catalogLeft = []
+  let catalogRight = []
+  let catalogArrow = []
+
   let catalog = []
   let catalogIcon = []
   let catalogTitle = []
@@ -38,10 +57,18 @@ function createBlock(catalogs, container) {
     catalogToolsNum[i] = catalogs[i];
     catalogIcon[i] = catalogs[i];
 
+    catalogLeft[i] = document.createElement("div")
+    catalogRight[i] = document.createElement("div")
+    catalogArrow[i] = document.createElement("span")
+
     catalog[i] = document.createElement("div")
     catalogTitle[i] = document.createElement("div")
     catalogToolsNum[i] = document.createElement("div")
     catalogIcon[i] = document.createElement("div")
+
+    catalogLeft[i].classList.add("left")
+    catalogRight[i].classList.add("right")
+    catalogArrow[i].classList.add(...["img", "arrow"])
 
     catalog[i].classList.add("catalog")
     catalogTitle[i].classList.add("title")
@@ -50,11 +77,22 @@ function createBlock(catalogs, container) {
     catalogIcon[i].classList.add(catalogs[i].icon)
 
     catalogTitle[i].innerHTML = catalogs[i].title
-    catalogToolsNum[i].innerHTML = catalogs[i].product + ' товара'
+    catalogToolsNum[i].innerHTML = isMobile ? catalogs[i].product : catalogs[i].product + ' товара'
 
-    catalog[i].appendChild(catalogIcon[i]);
-    catalog[i].appendChild(catalogTitle[i]);
-    catalog[i].appendChild(catalogToolsNum[i]);
+    if(isMobile) {
+      catalogLeft[i].appendChild(catalogIcon[i]);
+      catalogLeft[i].appendChild(catalogTitle[i]);
+
+      catalogRight[i].appendChild(catalogToolsNum[i]);
+      catalogRight[i].appendChild(catalogArrow[i]);
+
+      catalog[i].appendChild(catalogLeft[i]);
+      catalog[i].appendChild(catalogRight[i]);
+    } else {
+      catalog[i].appendChild(catalogIcon[i]);
+      catalog[i].appendChild(catalogTitle[i]);
+      catalog[i].appendChild(catalogToolsNum[i]);
+    }
 
     container.appendChild(catalog[i]);
   }

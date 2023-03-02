@@ -50,6 +50,156 @@
 .hits_block .catalogs .catalog .header .hit {
   background: #9B51E0;
   border-radius: 3px;
-  padding: 5px 16px;
+  padding: 4.3px 16.2px;
+  font-size: 13px;
   color: white;
+}
+
+
+.hits_block {
+  margin-bottom: 25px;
+}
+.hits_block .catalogs {
+  display: flex;
+}
+.hits_block .catalogs .catalog:first-child {
+  margin-left: 0;
+}
+.hits_block .catalogs .catalog:last-child {
+  margin-right: 0;
+}
+.hits_block .catalogs .catalog {
+  width: 24%;
+  margin: 0 20px;
+  position: relative;
+  padding: 20px;
+  max-height: 486px;
+  max-width: 255px;
+  cursor: pointer;
+}
+.hits_block .catalogs .catalog:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #F4F4F4;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+.hits_block .catalogs .catalog .rating_block{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.hits_block .catalogs .catalog .rating_block .review {
+  font-size: 13px;
+  color: #828282;
+  margin-left: 10px;
+}
+.hits_block .catalogs .catalog .rating_block .img{
+  width: 112px;
+  height: 20px;
+}
+.hits_block .catalogs .catalog .img {
+  width: 215px;
+  height: 215px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.hits_block .catalogs .catalog .price_block {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.hits_block .catalogs .catalog .price_block .price {
+  font-size: 18px;
+  color: #333333;
+}
+.star5 {
+  background-image: url("../../../images/hits/stars5.svg");
+}
+.star45 {
+  background-image: url("../../../images/hits/star45.svg");
+}
+.star4 {
+  background-image: url("../../../images/hits/star4.svg");
+}
+.star3 {
+  background-image: url("../../../images/hits/star3.svg");
+}
+.hits_block .catalogs .catalog .price_block .last_price  {
+  color: #C4C4C4;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+.hits_block .catalogs .catalog:hover .img .hover_block {
+  opacity: 1;
+  visibility: visible;
+}
+.hits_block .catalogs .catalog .img .hover_block {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 13px;
+  border: 2px solid #FFFFFF;
+  border-radius: 3px;
+  max-width: 49px;
+  max-height: 49px;
+  position: absolute;
+  top: 39%;
+  left: 40%;
+  opacity: 0;
+  visibility: hidden;
+}
+.hits_block .catalogs .catalog .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hits_block .catalogs .catalog .stock {
+  font-size: 13px;
+  color: #27AE60;
+  margin: 20px 0px;
+}
+.hits_block .catalogs .catalog .footer .icons {
+  display: flex;
+  align-items: center;
+}
+.hits_block .catalogs .catalog .footer .icons .rating  {
+  width: 18px;
+  height: 20px;
+  background-image: url("../../../images/hits/rating.svg");
+}
+.hits_block .catalogs .catalog .footer .icons .heart {
+  width: 20px;
+  height: 18px;
+  margin-left: 20px;
+  background-image: url("../../../images/hits/heart.svg");
+}
+.hits_block .catalogs .catalog .footer .btn {
+  background: #2D9CDB;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 9.5px 26px;
+}
+.hits_block .catalogs .catalog .img .hover_block .hover {
+  width: 19px;
+  height: 19px;
+  background-image: url("../../../images/hits/expand.svg");
+}
+.hits_block .catalogs .catalog .iphone {
+  background-image: url("../../../images/hits/iphone.png");
+}
+.hits_block .catalogs .catalog .samsung {
+  background-image: url("../../../images/hits/samsung.png");
+}
+.hits_block .catalogs .catalog .huawei {
+  background-image: url("../../../images/hits/huawei.png");
+}
+.hits_block .catalogs .catalog .asus {
+  background-image: url("../../../images/hits/asus.png");
 }
