@@ -41,7 +41,6 @@ export function createHits() {
   btnRight.classList.add(...["btn", "right"])
 
   blocks.classList.add("catalogs")
-  blocks.classList.add("catalogs")
   
   title.innerHTML = "Хиты продаж"
 
@@ -58,7 +57,39 @@ export function createHits() {
       }
     }
   });
+  arrowLeft.addEventListener("click", () => {
+    let elemets = blocks.getElementsByClassName("catalog")
+    for (let i = 0; i < elemets.length; i++) {
+      let isCurrent = elemets[i].classList.contains("current");
+      if(isCurrent) {
+        elemets[i].classList.remove("current");
+        if(elemets[i - 1]) {
+          elemets[i - 1].classList.add("current");
+        } else {
+          elemets[elemets.length - 1].classList.add("current");
+        }
+        return
+      }
+    }
+    console.log(elemets)
+  })
 
+  arrowRight.addEventListener("click", () => {
+    let elemets = blocks.getElementsByClassName("catalog")
+    for (let i = 0; i < elemets.length; i++) {
+      let isCurrent = elemets[i].classList.contains("current");
+      if(isCurrent) {
+        elemets[i].classList.remove("current");
+        if(elemets[i + 1]) {
+          elemets[i + 1].classList.add("current");
+        } else {
+          elemets[0].classList.add("current");
+        }
+        return
+      }
+    }
+    console.log(elemets)
+  })
   btnLeft.appendChild(arrowLeft)
   btnRight.appendChild(arrowRight)
 
@@ -125,6 +156,9 @@ function createBlock(catalogs, container, textHit) {
     stockText[i] = catalogs[i];
     
     catalog[i] = createDiv( ["catalog",])
+    if(i === 0) {
+      catalog[i].classList.add("current")
+    }
     catalogHeader[i] = createDiv( ["header",])
     catalogTitle[i] = createDiv( ["title",])
     catalogLoop[i] = createDiv( ["loop", "img"])

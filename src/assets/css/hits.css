@@ -247,7 +247,7 @@
   .hits_block .catalogs .catalog {
     display: none;
   }  
-  .hits_block .catalogs .catalog:first-child {
+  .hits_block .catalogs .catalog.current {
     display: block;
     max-width: 100%;
     width: 100%;
@@ -260,7 +260,7 @@
   .hits_block .catalogs .catalog .rating_block .img {
     margin: 0;
   }
-  .hits_block .catalogs .catalog:first-child::before {
+  .hits_block .catalogs .catalog.current::before {
     content: "";
     position: absolute;
     top: 0;
